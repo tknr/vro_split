@@ -11,10 +11,8 @@ if [ $# -eq 0 ]; then
 fi
 
 
-for dir in `ls -l | grep ^d | cut -d " " -f 10`
+for dir in `find . -type d`
 do
-	TARGET_DIR=`readlink -f ${dir}`
-	echo $TARGET_DIR
-	cd "$TARGET_DIR" || exit 1 
-	dvd-vr VR_MANGR.IFO VR_MOVIE.VRO || exit 1
+	cd "`readlink -f ${dir}`" || continue
+	dvd-vr VR_MANGR.IFO VR_MOVIE.VRO || continue
 done
