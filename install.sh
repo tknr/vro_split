@@ -1,4 +1,5 @@
 #!/bin/bash -x
+cd `dirname $0`
 
 mkdir -p ~/bin
 ln -s `pwd`/vro_split ~/bin/
